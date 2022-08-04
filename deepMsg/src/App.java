@@ -13,7 +13,12 @@ public class App {
                 cls.setReuseAddress(true);
                 ss.setReuseAddress(true);
                 Ref.serAd=ss.getInetAddress().toString();
-
+                System.out.println("SADR: "+Ref.serAd);
+                Ref.serPort=ss.getLocalPort();
+                System.out.println("SPORT: "+Ref.serPort);
+                
+                //needs to accept the connection
+                cls=ss.accept();
                 InputStreamReader insr = new InputStreamReader(cls.getInputStream());
                 BufferedReader br = new BufferedReader(insr);
                 System.out.println(ss.getInetAddress());
