@@ -24,7 +24,7 @@ public class App {
                 System.out.println(ss.getInetAddress());
 
                     while(Ref.servListen==true){
-                        String line;
+                        String line = new String();
                         line=br.readLine();
                         System.out.println(line);
                         if(line.equals("shut")){

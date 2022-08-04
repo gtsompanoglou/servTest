@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -18,17 +20,18 @@ public class Client {
             System.out.println("SPORT: "+ sport);
             System.out.println("hello from client");
             PrintWriter out = new PrintWriter(cls.getOutputStream(),true);
+             BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
             
-                while(true){
-                    String line;
+            while(true){
+                    String line =new String();
                     System.out.println("Enter your Command:");
-                    line=scan.nextLine();
+                    line=bf.readLine();
                     System.out.println(line);
                         if(line.equals("exit")){break;}
-                    out.print(line.getBytes().toString());
-                    out.flush();
+                    out.print(line);
+                    //out.flush();
                 }
-
+            out.close();
             cls.close();
         }catch(Exception ge){
             ge.printStackTrace();
